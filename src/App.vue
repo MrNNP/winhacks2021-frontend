@@ -1,29 +1,31 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+    <Navbar title="Agricultural Resources"/>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import HelloWorld from './components/HelloWorld.vue'
-
+import Navbar from './components/Navbar.vue'
 @Component({
   components: {
-    HelloWorld
+    Navbar
   }
 })
 export default class App extends Vue {}
 </script>
 
 <style>
+*{
+  color: #cdcdcaff;
+  background: #0d0e16ff;
+  font-family: 'Open Sans', Avenir, Helvetica, Arial, sans-serif;
+  margin: 0%;
+  border: 0%;
+  padding: 0%;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
 }
+
 </style>
