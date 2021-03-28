@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navbar title="VERY LONG TITLE"/>
+    <navbar title="WINFARMS"/>
     <box-array />
   </div>
 </template>

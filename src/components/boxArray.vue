@@ -1,8 +1,13 @@
 <template>
 <div id='main'>
 <div v-if="apiRecived" id="arrayWrapper">  
-    <div id="boxArray" v-for="locat in locations" :key="locat.name">
+    <div id="boxArray">
+        <optionbox v-on:updateOrder="order=>{sort(order)}" v-on:updateCriteria="crit=>{sortListBy(crit)}"  v-on:updateMinreq="minreq=>{this.minreq=minreq; console.log(minreq.length)}"/>
+    </div>
+    <div  v-for="locat in locations" :key="locat.name+locat.address">
+    <div id='boxArray' v-if="minreq.every(req=>locat[req].toLowerCase()!='not found')">
         <location-infobox :Name="locat.name" :Address="locat.address" :Catagories="locat.categories" :Description="locat.description" :LocationLat="locat.position.lat" :LocationLong="locat.position.lon" :Phone="locat.phone" :Social="locat.socialMedia" :Url="locat.url"/>
+    </div>
     </div>
 </div>
 <div v-else-if="apiError">
@@ -16,16 +21,22 @@
 
 <script>
 import locationInfobox from './locationInfobox.vue'
+import optionbox from './optionbox.vue'
 export default {
     name:'boxArray',
     components:{
         locationInfobox,
+        optionbox
     },
     data(){
         return{
              locations:[],
              apiRecived:false,
              apiError:false,
+             sortBy:'name',
+             sorted:false,
+             order:'A-Z',
+             minreq:[]
         }
     },
     created(){
@@ -38,7 +49,28 @@ export default {
             console.log(err);
             this.apiError = true;
         })
-
+    },
+    methods:{
+        sort(order){
+            this.order = order;
+            console.log(order);
+            console.log(this.sorted);
+            
+                this.locations = this.locations.sort((a,b)=>{
+            
+            if(order=='A-Z'){
+                return a[this.sortBy].localeCompare(b[this.sortBy])
+            }else{
+                return b[this.sortBy].localeCompare(a[this.sortBy])
+            }})
+                this.sorted = true;
+        
+        },
+        sortListBy(prop){
+            console.log(prop);
+            this.sortBy = prop.toString();
+            this.sort(this.order);
+        }
     }
 }
 </script>
