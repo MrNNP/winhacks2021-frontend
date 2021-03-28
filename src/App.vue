@@ -1,13 +1,21 @@
 <template>
   <div id="app">
+    <navbar />
+    <optionbox />
+    <box-array />
   </div>
 </template>
 
 <script>
+import boxArray from './components/boxArray.vue'
+import navbar from './components/navbar.vue'
+import optionbox from './components/optionbox.vue'
 export default {
   name: 'App',
   components: {
-    
+    optionbox,
+    navbar,
+    boxArray
   }
 }
 </script>
@@ -17,8 +25,14 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+*{
+  --background-color: #0d0e16ff;
+  --color-1: #4041b9ff;
+  --color-2: #606056ff;
+  --text-color: #cdcdcaff;
+  --color-3: #d4d4a0ff;
+    background-color:var(--background-color);
+    color: var(--text-color);
 }
 </style>
