@@ -1,24 +1,10 @@
 # winhacks2021frontend
 
-## Project setup
-```
-npm install
-```
+## Project INFO
+We did the agriculture directory challenge
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
+## This repo is for the front-end of our winhacks 2021 project
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
