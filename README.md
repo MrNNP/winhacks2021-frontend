@@ -1,4 +1,4 @@
-# winhacks2021
+# winhacks2021frontend
 
 ## Project setup
 ```

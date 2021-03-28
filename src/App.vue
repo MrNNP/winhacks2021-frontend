@@ -1,31 +1,24 @@
 <template>
-    <Navbar title="Agricultural Resources"/>
+  <div id="app">
+  </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import Navbar from './components/Navbar.vue'
-@Component({
+<script>
+export default {
+  name: 'App',
   components: {
-    Navbar
+    
   }
-})
-export default class App extends Vue {}
+}
 </script>
 
 <style>
-*{
-  color: #cdcdcaff;
-  background: #0d0e16ff;
-  font-family: 'Open Sans', Avenir, Helvetica, Arial, sans-serif;
-  margin: 0%;
-  border: 0%;
-  padding: 0%;
-}
 #app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
-
 </style>
