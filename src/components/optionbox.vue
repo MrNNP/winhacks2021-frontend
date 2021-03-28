@@ -25,6 +25,7 @@
             <Input type="checkbox" value="url"></Input>Website
                 </li>
             </ul>
+        <p v-if="minreq.length>=1">You have {{minreq.join(', ')}} selected</p>
         </form>
   </div>
 </template>
@@ -36,7 +37,7 @@ export default {
         return{
             order:'A-Z',
             criteria:'Name',
-            minreq:['name','address','phone']
+            minreq:[]
         }
     },
     methods:{
@@ -68,5 +69,9 @@ export default {
 p{
     padding: 2px 5px;
     margin: 2px 5px;
+}
+ul{
+    margin-top: 2px;
+    list-style-type:none;
 }
 </style>

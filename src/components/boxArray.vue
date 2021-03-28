@@ -5,7 +5,7 @@
         <optionbox v-on:updateOrder="order=>{sort(order)}" v-on:updateCriteria="crit=>{sortListBy(crit)}"  v-on:updateMinreq="minreq=>{this.minreq=minreq; console.log(minreq.length)}"/>
     </div>
     <div  v-for="locat in locations" :key="locat.name+locat.address">
-    <div id='boxArray' v-if="minreq.every(req=>locat[req].toLowerCase()!='not found')">
+    <div id='boxArray' v-if="checkInfo(locat)">
         <location-infobox :Name="locat.name" :Address="locat.address" :Catagories="locat.categories" :Description="locat.description" :LocationLat="locat.position.lat" :LocationLong="locat.position.lon" :Phone="locat.phone" :Social="locat.socialMedia" :Url="locat.url"/>
     </div>
     </div>
@@ -70,18 +70,22 @@ export default {
             console.log(prop);
             this.sortBy = prop.toString();
             this.sort(this.order);
+        },
+        checkInfo: function(inf){
+           return this.minreq.every(req=>inf[req].toLowerCase()!='not found')
         }
+
     }
 }
 </script>
 
 <style scoped>
 #boxArray{
-    --background-color: #0d0e16ff;
-  --color-1: #4041b9ff;
-  --color-2: #606056ff;
-  --text-color: #cdcdcaff;
-  --color-3: #d4d4a0ff;
+      --background-color: #E0E0E2;
+  --color-1: #B5BAD0;
+  --color-2: #81D2C7;
+  --text-color: #001f3a;
+  --color-3: #7389AE;
     background:var(--color-2);
     border-radius: 13px;
     padding: 3px 15px;
