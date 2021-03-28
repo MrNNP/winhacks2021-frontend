@@ -40,7 +40,7 @@ export default {
         }
     },
     created(){
-        fetch('http://winhacks2021-backend.builderpepc.repl.co/all_data',{cors:'no_cors'}).then(res=>res.json()).then(data=>{
+        fetch('https://winhacks2021-backend.builderpepc.repl.co/all_data',{cors:'no_cors'}).then(res=>res.json()).then(data=>{
            console.log(data.results);
             this.locations = data.results;
             
